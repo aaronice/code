@@ -1,2 +1,4 @@
 # LintCode
-My solution for LintCode
+My solution for [LintCode] (http://www.lintcode.com/)
+
+Little by little.
