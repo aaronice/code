@@ -10,11 +10,11 @@ public class Solution {
      * @return: A list of strings
      */
 
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        String[] strs = {"ab", "ba", "cd", "dc", "e"};
-        System.out.print(s.anagrams(strs));
-    }
+    // public static void main(String[] args) {
+    //     Solution s = new Solution();
+    //     String[] strs = {"ab", "ba", "cd", "dc", "e"};
+    //     System.out.print(s.anagrams(strs));
+    // }
 
     public List<String> anagrams(String[] strs) {
         // write your code here
@@ -47,25 +47,17 @@ public class Solution {
 
 
     public boolean checkAnagrams(String s, String t) {
-        // write your code here
-        int[] charList1 = new int[256];
-        int[] charList2 = new int[256];
-
         if (s.length() != t.length()) {
-            return false;
+           return false;
         }
-        for (int k = 0; k< 256; k++) {
-            charList1[k] = 0;
-            charList2[k] = 0;
-        }
+
+        int[] count = new int[256];
         for (int i = 0; i < s.length(); i++) {
-            if (Character.getNumericValue(s.charAt(i)) != -1)
-                charList1[Character.getNumericValue(s.charAt(i))] += 1;
-            if (Character.getNumericValue(t.charAt(i)) != -1)
-                charList2[Character.getNumericValue(t.charAt(i))] += 1;
+            count[(int) s.charAt(i)]++;
         }
-        for (int n = 0; n < 256; n++) {
-            if (charList1[n] != charList2[n]) {
+        for (int i = 0; i < t.length(); i++) {
+            count[(int) t.charAt(i)]--;
+            if (count[(int) t.charAt(i)] < 0) {
                 return false;
             }
         }
