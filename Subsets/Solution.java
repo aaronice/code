@@ -10,12 +10,12 @@ class Solution {
         ArrayList<Integer> S = new ArrayList<Integer> ();
         S.add(1);
         S.add(2);
-        S.add(3);
+        S.add(2);
         ArrayList<ArrayList<Integer>> result = s.subsets(S);
+        System.out.println("Result:\n");
         System.out.println("[");
         for (int i = 0; i < result.size(); i++) {
-            // System.out.println("result[" + i + "] = " + result.get(i));
-            System.out.println(result.get(i));
+            System.out.println("    " + result.get(i));
         }
         System.out.println("]");
     }
@@ -31,15 +31,21 @@ class Solution {
     }
 
     private void subsetsHelper(ArrayList<ArrayList<Integer>> result,
-        ArrayList<Integer> list, ArrayList<Integer> S, int pos) {
+        ArrayList<Integer> list, ArrayList<Integer> S, int level) {
 
+        System.out.println("\nEntering a new recursion, level: " + level);
         result.add(new ArrayList<Integer>(list));
+        System.out.println("result: " + result);
 
-        for (int i = pos; i < S.size(); i++) {
+        for (int i = level; i < S.size(); i++) {
 
             list.add(S.get(i));
+            System.out.println("level = " + level + ", loop i = " + i);
+            System.out.println("list: " + list);
+
             subsetsHelper(result, list, S, i + 1);
             list.remove(list.size() - 1);
         }
+        System.out.println("Returning recursion...");
     }
 }
