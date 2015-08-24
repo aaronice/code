@@ -10,7 +10,7 @@ class Solution {
         ArrayList<Integer> S = new ArrayList<Integer> ();
         S.add(1);
         S.add(2);
-        S.add(2);
+        S.add(3);
         ArrayList<ArrayList<Integer>> result = s.subsets(S);
         System.out.println("Result:\n");
         System.out.println("[");
