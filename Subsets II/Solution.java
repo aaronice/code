@@ -35,21 +35,21 @@ class Solution {
     private void subsetsHelper(ArrayList<ArrayList<Integer>> result,
         ArrayList<Integer> list, ArrayList<Integer> S, int level) {
 
-        System.out.println("\nEntering a new recursion, level: " + level);
+        // System.out.println("\nEntering a new recursion, level: " + level);
         result.add(new ArrayList<Integer>(list));
-        System.out.println("result: " + result);
+        // System.out.println("result: " + result);
 
         for (int i = level; i < S.size(); i++) {
             if (i > level && S.get(i) == S.get(i - 1)) {
                 continue;
             }
             list.add(S.get(i));
-            System.out.println("level = " + level + ", loop i = " + i);
-            System.out.println("list: " + list);
+            // System.out.println("level = " + level + ", loop i = " + i);
+            // System.out.println("list: " + list);
 
             subsetsHelper(result, list, S, i + 1);
             list.remove(list.size() - 1);
         }
-        System.out.println("Returning recursion...");
+        // System.out.println("Returning recursion...");
     }
 }
