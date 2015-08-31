@@ -7,7 +7,7 @@ class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        int[] nums = {1, 2, 3, 3, 4, 5, 10};
+        int[] nums = {1, 2, 3, 3, 3, 4, 5, 10};
         int target = 3;
         System.out.println("first position of index: " + s.binarySearch(nums, target));
     }
@@ -22,7 +22,7 @@ class Solution {
             if (nums[mid] < target) {
                 low = mid;
             } else if (nums[mid] == target) {
-                high = mid;
+                high = mid; // First position: use "high", last position: use "low"
             } else {
                 high = mid;
             }
