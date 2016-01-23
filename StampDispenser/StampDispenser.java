@@ -60,7 +60,7 @@ public class StampDispenser
         if (this.stampDenominations[start] == target) {
             return this.stampDenominations[start];
         } else if (this.stampDenominations[end] == target) {
-            return this.stampDenominations[start];
+            return this.stampDenominations[end];
         } else {
             if (this.stampDenominations[start] < target) {
                 return this.stampDenominations[start];
