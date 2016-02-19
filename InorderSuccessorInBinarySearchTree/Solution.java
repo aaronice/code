@@ -7,32 +7,34 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+ public class Solution {
 
+     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+         // write your code here
+         TreeNode successor = null;
 
-    private void dfs(TreeNode root, TreeNode p, boolean flag, TreeNode successor) {
-        if (root == null) {
-            return;
-        }
-        if (flag == true) {
-            successor = root;
-        }
-        if (root.val == p.val) {
-            flag = true;
-        } else {
-            flag = false;
-        }
-        dfs(root.left, p, flag, successor);
-        dfs(root, p, flag, successor);
-        dfs(root.right, p, flag, successor);
+         while(root != null && root.val != p.val) {
+             if (root.val > p.val) {
+                 successor = root;
+                 root = root.left;
+             } else {
+                 root = root.right;
+             }
+         }
 
-    }
+         if (root == null) {
+             return null;
+         }
 
-    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        // write your code here
+         if (root.right == null) {
+             return successor;
+         }
 
-        TreeNode successor = new TreeNode(0);
-        dfs(root, p, false, successor);
-        return successor;
-    }
-}
+         root = root.right;
+         while(root.left != null) {
+             root = root.left;
+         }
+
+         return root;
+     }
+ }
