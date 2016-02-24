@@ -49,7 +49,12 @@ public class Solution {
         ResultType left = helper(root.left);
         ResultType right = helper(root.right);
 
-        int currentHeight = left.height > right.height ? left.height : right.height;
+        int currentHeight;
+        if (left.height > right.height) {
+            currentHeight = left.height;
+        } else {
+            currentHeight = right.height;
+        }
 
         if (!left.balanced || !right.balanced) {
             return new ResultType(currentHeight + 1, false);
