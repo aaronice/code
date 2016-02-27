@@ -9,6 +9,7 @@
 *     }
 * }
 */
+
 // public class Solution {
 //     /**
 //     * @param root: The root of binary tree.
@@ -31,6 +32,9 @@
 // }
 
 // Version 2: Non-Recursion
+// Reference:
+// http://www.programcreek.com/2012/12/leetcode-solution-of-binary-tree-inorder-traversal-in-java/
+
 public class Solution {
     /**
     * @param root: The root of binary tree.
