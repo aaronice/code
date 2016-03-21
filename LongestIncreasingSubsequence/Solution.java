@@ -22,10 +22,9 @@ public class Solution {
                     T[i] = T[j] + 1;
                 }
             }
-        }
-
-        for (int m = 0; m < nums.length; m++) {
-            maxLength = Math.max(maxLength, T[m]);
+            if (T[i] > maxLength) {
+                maxLength = T[i];
+            }
         }
 
         return maxLength;
