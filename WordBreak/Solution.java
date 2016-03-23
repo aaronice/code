@@ -28,15 +28,19 @@ public class Solution {
 
         canBreak[0] = true;
 
-        for (int i = 0; i < s.length() + 1; i++) {
+        for (int i = 1; i < s.length() + 1; i++) {
             for (int j = i - 1; j >= 0; j--) {
                 if (i - j > maxLength) {
                     break;
                 }
 
+                if (!canBreak[j]) {
+                    continue;
+                }
+
                 String word = s.substring(j, i);
 
-                if (dict.contains(word) && canBreak[j]) {
+                if (dict.contains(word)) {
                     canBreak[i] = true;
                     break;
                 }
