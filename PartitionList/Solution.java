@@ -32,6 +32,7 @@ public class Solution {
             }
             p = p.next;
         }
+        gt.next = null;
         lt.next = gtDummyHead.next;
         return ltDummyHead.next;
     }

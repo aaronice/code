@@ -27,7 +27,7 @@ public class Solution {
         while(p.next != null && p.next.next != null) {
             if (p.next.val == p.next.next.val) {
                 // Delete the duplicate
-                dupVal = p.next.val;
+                int dupVal = p.next.val;
                 while (p.next != null && p.next.val == dupVal) {
                     p.next = p.next.next;
                 }
