@@ -1,3 +1,9 @@
+
+
+/*
+ Approach: Copy the value of the following node, and remove the next node
+ */
+
 /**
  * Definition for ListNode.
  * public class ListNode {
