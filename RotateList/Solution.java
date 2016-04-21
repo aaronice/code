@@ -10,6 +10,14 @@
  * }
  */
 public class Solution {
+    private int getLength(ListNode head) {
+        int length = 0;
+        while (head != null) {
+            head = head.next;
+            length++;
+        }
+        return length;
+    }
     /**
      * @param head: the List
      * @param k: rotate to the right k places
@@ -19,33 +27,26 @@ public class Solution {
         if (head == null) {
             return head;
         }
+        int length = getLength(head);
+        int n = k % length;
 
-        ListNode pointer = head;
-        ListNode tail = new ListNode(0);
-        tail.next = head;
-        int length = 0;
-        while (tail.next != null) {
-            tail = tail.next;
-            length++;
-        }
-
-        if (length == 0) {
-            return head;
-        } else {
-            k = k % length;
-        }
-        int off = length - k;
-
-        pointer = head;
-        while (off > 0) {
-            pointer = pointer.next;
-            off--;
-        }
         ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+        ListNode tail = dummy;
 
-        dummy.next = pointer;
+        for (int i = 0; i < n; i++) {
+            head = head.next;
+        }
 
-        tail.next = head;
+        while (head.next != null) {
+            head = head.next;
+            tail = tail.next;
+        }
+
+        head.next = dummy.next;
+        dummy.next = tail.next;
+        tail.next = null;
 
         return dummy.next;
     }
