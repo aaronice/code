@@ -17,7 +17,7 @@ public class Solution {
         }
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode head = dummy;
+        head = dummy;
 
         while (head.next != null && head.next.next != null) {
             ListNode n1 = head.next;
