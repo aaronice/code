@@ -17,21 +17,19 @@ public class Solution {
         }
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode pointer = dummy;
+        ListNode head = dummy;
 
-        ListNode temp1 = pointer;
-        ListNode temp2 = pointer;
+        while (head.next != null && head.next.next != null) {
+            ListNode n1 = head.next;
+            ListNode n2 = head.next.next;
+            // head->n1->n2->...
+            // => head->n2->n1->...
+            head.next = n2;
+            n1.next = n2.next;
+            n2.next = n1;
 
-        while (pointer.next != null && pointer.next.next != null) {
-            temp1 = pointer.next;
-            temp2 = pointer.next.next.next;
-
-            // pointer -> n1 -> n2 -> n3 -> ...
-            // => pointer -> n2 -> n1 -> n3 ...
-            pointer.next = temp1.next;
-            pointer.next.next = temp1;
-            temp1.next = temp2;
-            pointer = pointer.next.next;
+            // move to next pair
+            head = n1;
         }
 
         return dummy.next;
