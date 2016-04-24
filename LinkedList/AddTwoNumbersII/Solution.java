@@ -21,24 +21,16 @@
  * }
  */
 public class Solution {
-    // head -> n1 -> n2 -> null
-    // dummy -> null
-    // dummy -> n1 -> null
-    // dummy -> n2 -> n1 -> null
+    
     public ListNode reverse(ListNode head) {
-        if (head == null) {
-            return head;
-        }
-        ListNode dummy = new ListNode(0);
-
+        ListNode prev = null;
         while (head != null) {
-            ListNode rTemp = dummy.next;
-            ListNode fTemp = head.next;
-            dummy.next = head;
-            dummy.next.next = rTemp;
-            head = fTemp;
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
         }
-        return dummy.next;
+        return prev;
     }
 
     public ListNode addLists(ListNode l1, ListNode l2) {
