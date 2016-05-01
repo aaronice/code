@@ -4,6 +4,9 @@ Given an array of n objects with k different colors (numbered from 1 to k),
 sort them so that objects of the same color are adjacent,
 with the colors in the order 1, 2, ... k.
 
+Reference:
+http://blog.welkinlan.com/2015/08/25/sort-colors-i-ii-leetcode-lintcode-java/
+http://www.cnblogs.com/yuzhangcmu/p/4177326.html
  */
 
 public class Solution {
