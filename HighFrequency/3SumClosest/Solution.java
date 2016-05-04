@@ -22,18 +22,18 @@ public class Solution {
             int pr = length - 1;
 
             while (pl < pr) {
-                int tmp = numbers[i] + numbers[pl] + numbers[pr];
-                if (tmp == target) {
-                    return tmp;
-                } else if (tmp < target) {
-                    if (target - tmp < diff) {
-                        diff = target - tmp;
+                int sum = numbers[i] + numbers[pl] + numbers[pr];
+                if (sum == target) {
+                    return sum;
+                } else if (sum < target) {
+                    if (target - sum < diff) {
+                        diff = target - sum;
                         sign = -1;
                     }
                     pl++;
                 } else {
-                    if (tmp - target < diff) {
-                        diff = tmp - target;
+                    if (sum - target < diff) {
+                        diff = sum - target;
                         sign = 1;
                     }
                     pr--;
@@ -41,5 +41,36 @@ public class Solution {
             }
         }
         return target + sign * diff;
+    }
+
+    // Use Math.abs(), two pointers
+    public int threeSumClosestV2(int[] numbers,int target) {
+        if (numbers == null || numbers.length < 3) {
+            return Integer.MAX_VALUE;
+        }
+
+        Arrays.sort(numbers);
+
+        int length = numbers.length;
+        int closest = Integer.MAX_VALUE / 2;
+
+        for (int i = 0; i < length - 2; i++) {
+            int pl = i + 1;
+            int pr = length - 1;
+
+            while (pl < pr) {
+                int sum = numbers[i] + numbers[pl] + numbers[pr];
+                if (sum == target) {
+                    return sum;
+                } else if (sum < target) {
+                    pl++;
+                } else {
+                    pr--;
+                }
+                closest = Math.abs(sum - target) < Math.abs(closest - target) ?
+                        sum : closest;
+            }
+        }
+        return closest;
     }
 }
