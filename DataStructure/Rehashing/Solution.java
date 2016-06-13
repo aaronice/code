@@ -43,13 +43,11 @@ public class Solution {
             ListNode ln = hashTable[code];
             if (ln == null) {
                 hashTable[code] = ln = new ListNode(value);
-                // System.out.println("Here: " + value);
             } else {
                 while (ln.next != null) {
                     ln = ln.next;
                 }
                 ln.next = new ListNode(value);
-                // System.out.println("Here: " + value);
             }
         }
     }
